@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   mongo:
     image: mongo
@@ -36,10 +35,8 @@ services:
     networks:
       - todo-network
 
-
 networks:
   todo-network:
-
 
 volumes:
   mongo_data:

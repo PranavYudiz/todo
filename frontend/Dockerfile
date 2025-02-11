@@ -1,8 +1,5 @@
-# Use Nginx as the base image
 FROM nginx:alpine
-
-# Copy the frontend files
 COPY . /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]
