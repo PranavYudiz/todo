@@ -11,12 +11,38 @@ services:
     networks:
       - todo-network
 
-  backend:
+  backend1:
     build: ./backend
-    container_name: backend
+    container_name: backend1
     restart: always
     ports:
-      - "5000:5000"
+      - "5001:5000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/todoDB
+    networks:
+      - todo-network
+
+  backend2:
+    build: ./backend
+    container_name: backend2
+    restart: always
+    ports:
+      - "5002:5000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/todoDB
+    networks:
+      - todo-network
+
+  backend3:
+    build: ./backend
+    container_name: backend3
+    restart: always
+    ports:
+      - "5003:5000"
     depends_on:
       - mongo
     environment:
@@ -31,7 +57,9 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - backend
+      - backend1
+      - backend2
+      - backend3
     networks:
       - todo-network
 
