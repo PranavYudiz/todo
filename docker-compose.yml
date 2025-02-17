@@ -65,6 +65,7 @@ services:
 
 networks:
   todo-network:
+    driver: bridge
 
 volumes:
   mongo_data:

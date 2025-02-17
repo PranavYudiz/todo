@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/items"; // Backend API URL
+const API_URL = "/items"; // Backend API URL
 
 // Function to fetch and display items
 function fetchItems() {
